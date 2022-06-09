@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ExampleComponent from "../components/ExampleComponent.vue"
+import About from "../pages/about.vue";
+import Bookables from "../bookables/Bookables.vue";
 
 const routes = [
     {
-        path: "/dashboard",
+        path: "/",
         name: "home",
-        component: ExampleComponent,
+        component: Bookables,
+    },
+    {
+        path: "/about",
+        name: "about",
+        component: About,
     },
 ];
 
