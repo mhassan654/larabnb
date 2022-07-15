@@ -45,9 +45,20 @@ class BookablesController extends Controller
      * @param  \App\Models\Bookable  $bookable
      * @return \Illuminate\Http\Response
      */
-    public function show(Bookable $bookable)
+    
+    public function show($id)
     {
-        //
+        $bookable = Bookable::find($id);
+          
+        if(isset($bookable)):
+            return response()->json(['status'=>true, 'payload'=>$bookable]);
+
+            // return $this->successResponse('true',$bookable->find($bookable),200);
+
+        endif;
+
+        return response()->json(['status'=>false, 'message'=>'Bookable id not found']);
+       
     }
 
     /**

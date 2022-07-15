@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\BookablesController;
 use App\Models\Bookable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BookablesController;
+use App\Http\Controllers\Api\BookableAvailabilityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return Bookable::all();
 // });
 Route::resource('bookables', BookablesController::class);
+Route::post('bookables/{bookable}/availability',BookableAvailabilityController::class)
+->name('bookables.availability.show');
